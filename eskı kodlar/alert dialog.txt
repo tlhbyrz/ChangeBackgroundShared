@@ -1,0 +1,42 @@
+ public void dokunuldu(View v) {
+
+        switch (v.getId())
+        {
+            case R.id.button2:
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Uyari !!");
+                builder.setIcon(android.R.drawable.ic_dialog_alert);
+                builder.setMessage("silmek istedigine emin misin ? ");
+                builder.setPositiveButton("Evet", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton("Hayir", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                }) ;
+                builder.setCancelable(false);
+                builder.create().show();
+
+        }
+
+    }
+
+
+
+
+
+
+ <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="79dp"
+        android:text="Button"
+        android:onClick="dokunuldu"/>

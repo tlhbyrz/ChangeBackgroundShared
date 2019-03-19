@@ -1,0 +1,148 @@
+package com.talhababa.myapplication;
+
+        import android.Manifest;
+        import android.content.Intent;
+        import android.content.pm.PackageManager;
+        import android.graphics.Color;
+        import android.net.Uri;
+        import android.support.v4.app.ActivityCompat;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.text.TextUtils;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.Adapter;
+        import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
+        import android.widget.AutoCompleteTextView;
+        import android.widget.Button;
+        import android.widget.CheckBox;
+        import android.widget.EditText;
+        import android.widget.ImageButton;
+        import android.widget.ImageView;
+        import android.widget.LinearLayout;
+        import android.widget.ListView;
+        import android.widget.MultiAutoCompleteTextView;
+        import android.widget.RelativeLayout;
+        import android.widget.Spinner;
+        import android.widget.TextView;
+        import android.widget.Toast;
+
+        import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+
+    Button btn, btn2, btn3, btn4;
+    RelativeLayout rl;
+    LinearLayout ly;
+    EditText edt1,edt2,edt3;
+    ImageView imw;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        edt1= (EditText) findViewById(R.id.editText2);
+
+        edt2= (EditText) findViewById(R.id.editText4);
+
+        edt3= (EditText) findViewById(R.id.editText3);
+
+        btn= (Button) findViewById(R.id.button2);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = edt1.getText().toString();
+                String konu = edt1.getText().toString();
+                String icerik = edt1.getText().toString();
+
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("email/rfc822");
+                intent.putExtra(Intent.EXTRA_EMAIL,email);
+                intent.putExtra(Intent.EXTRA_SUBJECT,konu);
+                intent.putExtra(Intent.EXTRA_TEXT,icerik);
+                startActivity(intent);
+            }
+        });
+
+
+
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    //    return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.act1)
+        {
+            Toast.makeText(getApplicationContext(),"Ayarlar",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if (id == R.id.act2)
+        {
+            Toast.makeText(getApplicationContext(),"Paylas",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if (id == R.id.act3)
+        {
+            Toast.makeText(getApplicationContext(),"Sil",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+
+        android:id="@+id/act1"
+        android:orderInCategory="1"
+        android:title="Ayarlar"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@android:drawable/ic_menu_preferences"
+        />
+
+    <item
+
+        android:id="@+id/act2"
+        android:orderInCategory="2"
+        android:title="Paylas"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@android:drawable/ic_menu_share"
+        />
+
+
+    <item
+
+        android:id="@+id/act3"
+        android:orderInCategory="3"
+        android:title="Sil"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@android:drawable/ic_menu_delete"
+        />
+
+</menu>

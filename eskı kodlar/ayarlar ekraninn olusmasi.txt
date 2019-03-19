@@ -1,0 +1,92 @@
+
+public class Ayarlar extends PreferenceActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.ayarlar);
+
+    }
+}
+
+
+
+
+ <string-array name="renk">
+
+        <item>kirmizi</item>
+        <item>mavi</item>
+        <item>siyah</item>
+        <item>yesil</item>
+
+    </string-array>
+
+    <string-array name="renk_sira">
+
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+
+    </string-array>
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+
+        android:title="Titresim"
+        android:key="titresim"
+        android:summaryOn="titresim acik"
+        android:summaryOff="titresim kapali"
+
+        />
+
+    <CheckBoxPreference
+
+        android:title="Ses"
+        android:key="ses"
+        android:summaryOn="ses acik"
+        android:summaryOff="ses kapali"
+
+        />
+
+    <ListPreference
+
+        android:entries="@array/renk"
+        android:entryValues="@array/renk_sira"
+        android:summary="arkaplan rengini seciniz"
+        android:key="arkaplan"
+        android:title="Arkaplan"
+
+
+        />
+
+</PreferenceScreen>
+
+
+
+
+
+public boolean onCreateOptionsMenu(Menu menu) {
+    //    return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.act1)
+        {
+            Intent intent = new Intent(getApplicationContext(),Ayarlar.class);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(),"Ayarlar",Toast.LENGTH_SHORT).show();
+            return true;
+        }

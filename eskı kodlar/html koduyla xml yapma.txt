@@ -1,0 +1,11 @@
+javada textview varsa 
+
+tv.settext(Html.fromhtml(getString.R.String.html)));  yaziyoruz.
+
+
+xml kisminda ise  string array olusturduktan sonra 
+
+<![CDATA[]]> kodunu yazip ilk koseli parantezin icine html kodlarini yaziyoruz.
+
+
+<b>kalin yazi </b>  gibi.

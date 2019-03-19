@@ -1,0 +1,35 @@
+SharedPreferences preferences ;
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("anahtar",sayi);
+        editor.commit();
+    }
+
+
+
+
+
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ActionBar ac = getSupportActionBar();
+
+        ac.setTitle("Baslik");
+        ac.setBackgroundDrawable(getResources().getDrawable(R.drawable.actionbar));
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        sayi = preferences.getInt("anahter",0);
+
+        btn= (Button) findViewById(R.id.button2);
+       btn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               sayi++;
+               btn.setText(""+sayi);
+           }
+       });

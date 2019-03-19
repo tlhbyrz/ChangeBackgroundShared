@@ -1,0 +1,28 @@
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
+
+RelativeLayout arkaplan;
+
+
+private void ayarlariyukle() {
+        String pos = ayarlar.getString("arkaplan","1");
+        switch (Integer.valueOf(pos)){
+            case 0:
+                arkaplan.setBackgroundColor(Color.RED);
+                break;
+            case 1:
+                arkaplan.setBackgroundColor(Color.BLUE);
+                break;
+            case 2:
+                arkaplan.setBackgroundColor(Color.BLACK);
+                break;
+            case 3:
+                arkaplan.setBackgroundColor(Color.GREEN);
+                break;
+        }
+        ayarlar.registerOnSharedPreferenceChangeListener(MainActivity.this);
+    }
+
+
+public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        ayarlariyukle();
+    } 

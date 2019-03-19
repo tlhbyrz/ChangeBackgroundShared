@@ -1,0 +1,8 @@
+ListView liste= (ListView) findViewById(R.id.lw);
+
+        liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),"secilenin sirasi : "+position,Toast.LENGTH_SHORT).show();
+            }
+        });

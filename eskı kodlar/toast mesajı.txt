@@ -1,0 +1,25 @@
+btn = (Button) findViewById(R.id.button2);
+        btn2 = (Button) findViewById(R.id.button3);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"bu bir toast mesajidir",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView text = new TextView(getApplicationContext());
+                text.setText("ozel toast mesaji");
+                text.setPadding(14,14,14,14);
+                text.setBackgroundColor(Color.BLUE);
+                text.setTextColor(Color.WHITE);
+
+                Toast mesaj = new Toast(getApplicationContext());
+                mesaj.setView(text);
+                mesaj.setDuration(Toast.LENGTH_LONG);
+                mesaj.show();
+            }
+        });

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+
+        android:id="@+id/act1"
+        android:orderInCategory="1"
+        android:title="Ayarlar"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@android:drawable/ic_menu_preferences"
+        />
+
+    <item
+
+        android:id="@+id/act2"
+        android:orderInCategory="2"
+        android:title="Paylas"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@android:drawable/ic_menu_share"
+        />
+
+
+    <item
+
+        android:id="@+id/act3"
+        android:orderInCategory="3"
+        android:title="Sil"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@android:drawable/ic_menu_delete"
+        />
+
+</menu>

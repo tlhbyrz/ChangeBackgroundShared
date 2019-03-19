@@ -1,0 +1,24 @@
+
+        final CheckBox ckb= (CheckBox) findViewById(R.id.checkBox);
+        final Button bt= (Button) findViewById(R.id.button4);
+
+        ckb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                boolean  durum=ckb.isChecked();
+
+                if (durum)
+                    bt.setEnabled(true);
+                else
+                    bt.setEnabled(false);
+            }
+        });
+
+            bt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    bt.setEnabled(false);
+                    ckb.setChecked(false);
+                }
+            });

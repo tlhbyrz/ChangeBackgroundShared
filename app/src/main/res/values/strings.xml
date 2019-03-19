@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">ilk Uygulamam</string>
+    <string name="talhababaaa">TALHABABAAA!</string>
+    <string name="button">Button</string>
+
+    <string name="bana_dokun">bana dokun</string>
+
+    <string-array name="cihaz">
+        <item>ankara</item>
+        <item>istanbul</item>
+        <item>manisa</item>
+        <item>erzincan</item>
+        <item>erzurum</item>
+        <item>sivas</item>
+        <item>urfa</item>
+        <item>izmir</item>
+    </string-array>
+
+    <string-array name="renk">
+
+        <item>kirmizi</item>
+        <item>mavi</item>
+        <item>siyah</item>
+        <item>yesil</item>
+
+    </string-array>
+
+    <string-array name="renk_sira">
+
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+
+    </string-array>
+</resources>

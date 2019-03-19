@@ -1,0 +1,195 @@
+package com.talhababa.myapplication;
+
+        import android.Manifest;
+        import android.content.Intent;
+        import android.content.pm.PackageManager;
+        import android.graphics.Color;
+        import android.net.Uri;
+        import android.support.v4.app.ActivityCompat;
+        import android.support.v7.app.ActionBar;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.text.TextUtils;
+        import android.view.ContextMenu;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.Adapter;
+        import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
+        import android.widget.AutoCompleteTextView;
+        import android.widget.Button;
+        import android.widget.CheckBox;
+        import android.widget.EditText;
+        import android.widget.ImageButton;
+        import android.widget.ImageView;
+        import android.widget.LinearLayout;
+        import android.widget.ListView;
+        import android.widget.MultiAutoCompleteTextView;
+        import android.widget.RelativeLayout;
+        import android.widget.Spinner;
+        import android.widget.TextView;
+        import android.widget.Toast;
+
+        import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+
+    Button btn, btn2, btn3, btn4;
+    RelativeLayout rl;
+    LinearLayout ly;
+    EditText edt1,edt2,edt3;
+    ImageView imw;
+    ListView lv;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ActionBar ac = getSupportActionBar();
+
+        ac.setTitle("Baslik");
+        ac.setBackgroundDrawable(getResources().getDrawable(R.drawable.actionbar));
+
+        //edt1= (EditText) findViewById(R.id.editText2);
+        //btn= (Button) findViewById(R.id.button2);
+        //String email = edt1.getText().toString();
+        // Intent intent=new Intent(Intent.ACTION_SEND);
+
+        lv = (ListView) findViewById(R.id.lv);
+        String [] cihazlar = getResources().getStringArray(R.array.cihaz);
+        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),R.layout.liste,cihazlar);
+        lv.setAdapter(adapter);
+        registerForContextMenu(lv);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.menu_context,menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+       AdapterView.AdapterContextMenuInfo adtv  = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        switch (item.getItemId())
+        {
+            case R.id.act1:
+                TextView tv = (TextView) adtv.targetView;
+                Toast.makeText(getApplicationContext(),tv.getText().toString() + " duzenlendi",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.act2:
+                TextView tv2 = (TextView) adtv.targetView;
+                Toast.makeText(getApplicationContext(),tv2.getText().toString()  + " silindi",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.act3:
+                TextView tv3 = (TextView) adtv.targetView;
+                Toast.makeText(getApplicationContext(), tv3.getText().toString()  + " paylasildi",Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+        return super.onContextItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    //    return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.act1)
+        {
+            Toast.makeText(getApplicationContext(),"Ayarlar",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if (id == R.id.act2)
+        {
+            Toast.makeText(getApplicationContext(),"Paylas",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if (id == R.id.act3)
+        {
+            Toast.makeText(getApplicationContext(),"Sil",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+
+        android:id="@+id/act1"
+        android:orderInCategory="1"
+        android:title="Duzenle"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@android:drawable/ic_menu_preferences"
+        />
+
+    <item
+
+        android:id="@+id/act2"
+        android:orderInCategory="2"
+        android:title="Sil"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@android:drawable/ic_menu_share"
+        />
+
+
+    <item
+
+        android:id="@+id/act3"
+        android:orderInCategory="3"
+        android:title="Paylas"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@android:drawable/ic_menu_delete"
+        />
+
+</menu>
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textColor="#FFFFFF"
+    android:background="#ff5666"
+    android:padding="10dp">
+
+</TextView>

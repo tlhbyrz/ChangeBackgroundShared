@@ -1,0 +1,17 @@
+
+//bunu yapmak icin aplicasyona gidip yeni
+//bir empty activity olusturduk sonra onu ýntentle baglantýsýný kurduk
+
+
+
+
+btn= (Button) findViewById(R.id.button2);
+        btn2= (Button) findViewById(R.id.button3);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),ikinciekran.class);
+                startActivity(intent);
+            }
+        });

@@ -1,0 +1,11 @@
+ AutoCompleteTextView act = (AutoCompleteTextView) findViewById(R.id.act);
+        MultiAutoCompleteTextView mact = (MultiAutoCompleteTextView) findViewById(R.id.mact);
+
+        String[] cihaz = getResources().getStringArray(R.array.cihaz);
+
+        ArrayAdapter<String> adapterim= new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_dropdown_item_1line);
+
+        act.setAdapter(adapterim);
+        mact.setAdapter(adapterim);
+
+        mact.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
